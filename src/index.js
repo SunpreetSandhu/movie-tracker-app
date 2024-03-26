@@ -4,6 +4,9 @@ import ReactDOM from "react-dom/client";
 // import App from "./App";
 import StarRating from "./StarRating";
 import { useState } from "react";
+import App from "./App";
+import AppV2 from "./AppV2";
+
 function Test() {
   const [movieRating, setMovieRating] = useState(0);
   return (
@@ -17,12 +20,7 @@ function Test() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <StarRating
-      maxRating={5}
-      messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]}
-    />
-    <StarRating size={24} color="red" className="test" defaultRating={3} />
-    <Test></Test>
+    <App />
   </React.StrictMode>
 );
 
