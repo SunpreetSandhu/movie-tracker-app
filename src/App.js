@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./index.css";
+import StarRating from "./StarRating";
 
 // const tempMovieData = [
 //   {
@@ -294,13 +295,16 @@ function MovieDetails({ selectedId, onCloseMoive }) {
         </div>
       </header>
       <section>
+        <div className="rating">
+          <StarRating maxRating={10} size={24} />
+        </div>
+
         <p>
           <em>{plot}</em>
         </p>
         <p>Starring {actors}</p>
         <p>Directed by {director}</p>
       </section>
-      {selectedId}
     </div>
   );
 }
