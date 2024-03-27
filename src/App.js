@@ -59,7 +59,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
-
+  const [selectedId, setSelectedId] = useState("tt0816692");
   const tempQuery = "back to";
   useEffect(
     function () {
@@ -85,6 +85,11 @@ export default function App() {
           setIsLoading(false);
         }
       }
+      if (query.length < 3) {
+        setMovies([]);
+        setError("");
+        return;
+      }
       fetchMovies();
     },
     [query]
@@ -104,8 +109,14 @@ export default function App() {
           {/* {isLoading ? <Loader /> : <MovieList movies={movies} />} */}
         </Box>
         <Box>
-          <WatchedSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
+          {selectedId ? (
+            <MovieDetails selectedId={selectedId} />
+          ) : (
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMoviesList watched={watched} />
+            </>
+          )}
         </Box>
       </Main>
     </>
@@ -223,6 +234,10 @@ function Movie({ movie }) {
       </div>
     </li>
   );
+}
+
+function MovieDetails({ selectedId }) {
+  return <div className="details">{selectedId}</div>;
 }
 
 function WatchedSummary({ watched }) {
