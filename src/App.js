@@ -252,7 +252,10 @@ function Movie({ movie, onSelectMovie }) {
 function MovieDetails({ selectedId, onCloseMoive }) {
   return (
     <div className="details">
-      <button onClick={onCloseMoive}> &larr;</button>
+      <button className="btn-back" onClick={onCloseMoive}>
+        {" "}
+        &larr;
+      </button>
       {selectedId}
     </div>
   );
