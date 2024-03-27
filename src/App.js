@@ -287,8 +287,19 @@ function MovieDetails({ selectedId, onCloseMoive }) {
           <p>
             {released} &bull; {runtime}
           </p>
+          <p>{genre}</p>
+          <p>
+            <span>⭐️</span> {imdbRating} IMDb Rating
+          </p>
         </div>
       </header>
+      <section>
+        <p>
+          <em>{plot}</em>
+        </p>
+        <p>Starring {actors}</p>
+        <p>Directed by {director}</p>
+      </section>
       {selectedId}
     </div>
   );
