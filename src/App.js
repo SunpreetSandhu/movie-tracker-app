@@ -58,17 +58,19 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const query = "dskjfnkjsdnjknsdkvc";
+  const [query, setQuery] = useState("");
+
+  const tempQuery = "back to";
   useEffect(function () {
     async function fetchMovies() {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+          `http://www.omdbapi.com/?apikey=${KEY}&s=${tempQuery}`
         );
 
         if (!res.ok) {
-          throw new Error("Something wen wrong");
+          throw new Error("Something went wrong");
         }
 
         const data = await res.json();
@@ -87,7 +89,7 @@ export default function App() {
   return (
     <>
       <NavBar>
-        <Search />
+        <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </NavBar>
       <Main>
@@ -113,7 +115,7 @@ function Loader() {
 function ErrorMessage({ message }) {
   return (
     <p className="error">
-      <span>Error</span> {message}
+      <span>Error: </span> {message}
     </p>
   );
 }
@@ -144,9 +146,7 @@ function Logo() {
   );
 }
 
-function Search() {
-  const [query, setQuery] = useState("");
-
+function Search({ query, setQuery }) {
   return (
     <input
       className="search"
