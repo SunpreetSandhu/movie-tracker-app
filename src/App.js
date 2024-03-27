@@ -276,10 +276,19 @@ function MovieDetails({ selectedId, onCloseMoive }) {
   }, []);
   return (
     <div className="details">
-      <button className="btn-back" onClick={onCloseMoive}>
-        {" "}
-        &larr;
-      </button>
+      <header>
+        <button className="btn-back" onClick={onCloseMoive}>
+          {" "}
+          &larr;
+        </button>
+        <img src={poster} alt={`Poster of ${movie}`} />
+        <div className="details-overview">
+          <h2>{title}</h2>
+          <p>
+            {released} &bull; {runtime}
+          </p>
+        </div>
+      </header>
       {selectedId}
     </div>
   );
