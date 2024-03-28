@@ -321,6 +321,7 @@ function MovieDetails({
 
   useEffect(
     function () {
+      if (!title) return;
       document.title = `Movie | ${title}`;
     },
     [title]
