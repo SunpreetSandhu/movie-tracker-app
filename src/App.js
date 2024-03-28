@@ -100,7 +100,6 @@ export default function App() {
           setError("");
         } catch (err) {
           if (err.name !== "AbortError") {
-            console.error(err.message);
             setError(err.message);
           }
         } finally {
@@ -112,6 +111,8 @@ export default function App() {
         setError("");
         return;
       }
+
+      handleCloseMovie();
       fetchMovies();
 
       return function () {
@@ -318,7 +319,6 @@ function MovieDetails({
       function callback(e) {
         if (e.code === "Escape") {
           onCloseMoive();
-          console.log("closing");
         }
       }
       document.addEventListener("keydown", callback);
