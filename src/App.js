@@ -302,6 +302,7 @@ function MovieDetails({
     onAddWatched(newWatchedMovie);
     onCloseMoive();
   }
+
   useEffect(
     function () {
       async function getMovieDetails() {
@@ -316,6 +317,13 @@ function MovieDetails({
       getMovieDetails();
     },
     [selectedId]
+  );
+
+  useEffect(
+    function () {
+      document.title = `Movie | ${title}`;
+    },
+    [title]
   );
   return (
     <div className="details">
