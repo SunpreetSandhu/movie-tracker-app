@@ -81,6 +81,13 @@ export default function App() {
 
   useEffect(
     function () {
+      localStorage.setItem("watched", JSON.stringify(watched));
+    },
+    [watched]
+  );
+
+  useEffect(
+    function () {
       const controller = new AbortController();
 
       async function fetchMovies() {
