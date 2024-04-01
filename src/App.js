@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import "./index.css";
 import StarRating from "./StarRating";
+import { useKey } from "./useKey";
 import { useLocalStorageState } from "./useLocalStorageState";
 import { useMovies } from "./useMovies";
 
@@ -310,20 +311,7 @@ function MovieDetails({
     onCloseMoive();
   }
 
-  useEffect(
-    function () {
-      function callback(e) {
-        if (e.code === "Escape") {
-          onCloseMoive();
-        }
-      }
-      document.addEventListener("keydown", callback);
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [onCloseMoive]
-  );
+  useKey("escaPe", onCloseMoive);
 
   useEffect(
     function () {
