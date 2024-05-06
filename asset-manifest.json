@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SunpreetSandhu/movie-tracker-app/static/css/main.b496b862.css",
+    "main.js": "/SunpreetSandhu/movie-tracker-app/static/js/main.a30ece57.js",
+    "index.html": "/SunpreetSandhu/movie-tracker-app/index.html",
+    "main.b496b862.css.map": "/SunpreetSandhu/movie-tracker-app/static/css/main.b496b862.css.map",
+    "main.a30ece57.js.map": "/SunpreetSandhu/movie-tracker-app/static/js/main.a30ece57.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b496b862.css",
+    "static/js/main.a30ece57.js"
+  ]
+}
